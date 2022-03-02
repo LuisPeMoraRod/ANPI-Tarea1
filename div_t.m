@@ -1,4 +1,4 @@
-#Fucntions that computes the inverse of a number: x^1
+#Function that computes the inverse of a number: x^1
 #parameters: 
   # @x
   # @tol : tolerance
