@@ -1,8 +1,8 @@
 #Function that computes the inverse of a number: x^1
 #parameters: 
   # @x
-  # @tol : tolerance
 #output: result of the operation x^-1
+#restrictions: x must be different than zero
 function [result] = div_t(x)
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
