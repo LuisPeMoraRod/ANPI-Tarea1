@@ -8,7 +8,7 @@ function [result] = div_t(x)
   iterMax = 2500; # generic maximum iterations defined for the package
   a = x;
 
-  #Functions that returns x0 based on the value of a
+  #Function that returns x0 based on the value of @a
   #parameters:
     # @a
   #output: @x0
