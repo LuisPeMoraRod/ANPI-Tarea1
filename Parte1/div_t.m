@@ -13,15 +13,15 @@ function [result] = div_t(x)
     # @a
   #output: @x0
   function [x0]=get_x0 (a)
-    if (factorial(0) < a <= factorial(20))
+    if and(factorial(0) <= a, a <= factorial(20))
       x0 = eps^2;
-    elseif (factorial(20) < a <= factorial(40))
+    elseif and(factorial(20) < a, a <= factorial(40))
       x0 = eps^4;
-    elseif (factorial(40) < a <= factorial(60))
+    elseif and(factorial(40) < a, a <= factorial(60))
       x0 = eps^8;
-    elseif (factorial(60) < a <= factorial(80))
+    elseif and(factorial(60) < a, a <= factorial(80))
       x0 = eps^11;
-    elseif (factorial(80) < a <= factorial(100))
+    elseif and(factorial(80) < a, a <= factorial(100))
       x0 = eps^15;
     endif
   endfunction
