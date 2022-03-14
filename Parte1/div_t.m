@@ -30,7 +30,7 @@ function [result] = div_t(x)
     error('x value can`t be zero'); # non zero value validation
     return;
   else
-    [x_k] = get_x0(a); #define initial x value
+    x_k = get_x0(a); #define initial x value
     for k = 0 : iterMax -1
       x_kp1 = x_k * (2 - a * x_k); # defined succession for aproximation
       error = abs(x_kp1 - x_k); # error calculation

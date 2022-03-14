@@ -1,18 +1,23 @@
-#Function that computes arctan(x) 
+#Function that computes sin(x) 
 #parameters: 
   # @x : preimage
-#output: result of the operation arctan(x)
-#restrictions: x must be part of [-1,1]
-function [result] = atan_t(x)
+#output: result of the operation sin^(-1)_t(x)
+function [result] = asin_t(x)
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
   a = x;
-  function [s_k] = get_S_k(n)
-    s_k = (-1)^n * a^(2*n+1) * div_t(2*n+1); # defined succession for aproximation
+  
+  #Function that returns s_k based on a for the value of n
+  #parameters:
+    # @n : preimage
+  #output: @s_k
+  function [s_k] = get_S_k(n) 
+    denominador = 4^(n)*factorial(n)^(2)*(2*n + 1);
+    s_k = (factorial(2*n)*div_t(denominador))*a^(2*n + 1); # defined succession for aproximation
   endfunction
   
-  if or(x < -1, x > 1)
-    error('x must be part of [-1,1]'); # validate restriction
+  if or(x <= -1, x >= 1)
+      error('x value out of dominium'); # non zero value validation
     return;
   else
     s_k = get_S_k(0); #initial S_0
@@ -24,6 +29,6 @@ function [result] = atan_t(x)
           break;
         endif
       endfor
-    result = s_k;    
-  end
+   endif
+  result = s_k;
   endfunction

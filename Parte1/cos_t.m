@@ -1,14 +1,18 @@
 #Function that computes sin(x) 
 #parameters: 
   # @x : preimage
-#output: result of the operation sin(x)
-function [result] = sin_t(x)
+#output: result of the operation cos_t(x)
+function [result] = cos_t(x)
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
   a = x;
   
+  #Function that returns s_k based on a for the value of n
+  #parameters:
+    # @n : preimage
+  #output: @s_k
   function [s_k] = get_S_k(n)
-    s_k = (-1)^n * a^(2*n+1) * div_t(factorial(2*n+1)); # defined succession for aproximation
+    s_k = (-1)^n * a^(2*n) * div_t(factorial(2*n)); # defined succession for aproximation
   endfunction
   
   s_k = get_S_k(0); #initial S_0
