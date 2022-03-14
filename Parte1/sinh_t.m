@@ -2,7 +2,7 @@
 #parameters: 
   # @x : preimage
 #output: result of the operation sinh(x)
-function [result] = sinh(x)
+function [result] = sinh_t(x)
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
   a = x;

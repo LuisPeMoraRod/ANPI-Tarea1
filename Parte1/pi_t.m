@@ -1,6 +1,7 @@
 # Function that returns an aproximation of Pi based Ramanujan formula
 # which is an aproximation that converges way more faster than other aproximations
 function [pi_result] = pi_t()
+  pkg load symbolic
   #Series constants
   k1 = 545140134;
   k2 = 13591409;
