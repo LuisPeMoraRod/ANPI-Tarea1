@@ -1,7 +1,7 @@
-#Function that computes sin(x) 
+#Function that computes asin(x) 
 #parameters: 
   # @x : preimage
-#output: result of the operation sin^(-1)_t(x)
+#output: result of the operation arcsin(x)
 function [result] = asin_t(x)
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
