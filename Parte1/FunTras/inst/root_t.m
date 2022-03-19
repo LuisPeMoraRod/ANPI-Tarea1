@@ -8,6 +8,7 @@
 #restriction: 0 <= x
 
 function [result] =  root_t(x,a)
+  pkg load symbolic
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
   

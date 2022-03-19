@@ -1,0 +1,22 @@
+FunTras >> A Numerical Approximation Package For Trascendental Functions
+Trascendental Functions
+ div_t
+ exp_t
+ sin_t
+ cos_t
+ tan_t
+ ln_t
+ log_t
+ power_t
+ sinh_t
+ cosh_t
+ tanh_t
+ sqrt_t
+ root_t
+ asin_t
+ atan_t
+ acos_t
+Mathematical Constants
+ pi_t
+Example Expressions
+ test_funtras

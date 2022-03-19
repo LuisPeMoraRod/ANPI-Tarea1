@@ -2,11 +2,16 @@
 #parameters: 
   # @x
 #output: result of the operation x^-1
-#restrictions: x must be different than zero
+#restrictions: x must be different than zero and abs(x) can't be greater than factorial(100)
 function [result] = div_t(x)
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
   a = x;
+  is_negative = false;
+  if a < 0
+    a = abs(a);
+    is_negative = true; # handle sign
+  end
 
   #Function that returns x0 based on the value of @a
   #parameters:
@@ -29,6 +34,9 @@ function [result] = div_t(x)
   if (a == 0)
     error('x value can`t be zero'); # non zero value validation
     return;
+  elseif (a > factorial(100))
+    error('can`t support abs(x) greater than factorial(100)'); # max denominator validation 
+    return;
   else
     x_k = get_x0(a); #define initial x value
     for k = 0 : iterMax -1
@@ -39,6 +47,10 @@ function [result] = div_t(x)
         break;
       endif
     endfor
-    result = x_kp1;
+    if is_negative
+      result = -1 * x_kp1;
+    else
+      result = x_kp1;  
+    end
   endif
 endfunction

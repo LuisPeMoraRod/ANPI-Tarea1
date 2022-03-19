@@ -1,9 +1,7 @@
-#Function that computes sin(x) 
+#Function that computes sqrt(x) 
 #parameters: 
   # @x : preimage
-#output: result of the operation sqrt_t(x)
-
-#La función propuesta posee la siguiente propiedad: a^(1/2) = sqrt(a)
+#output: result of the square root of x
 function [result] = sqrt_t(x)
   
   if (x == 0)

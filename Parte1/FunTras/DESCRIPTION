@@ -1,0 +1,12 @@
+Name: FunTras
+Version: 1.0.0
+Date: 2022-19-03
+Authors: Luis Fabian Crawford Barquero <fabian152195@estudiantec.cr> and Luis Pedro Morales Rodriguez <luismorarod98@estudiantec.cr>
+Maintainer: Luis Pedro Morales Rodriguez <luismorarod98@estudiantec.cr>
+Title: A Numerical Approximation Package For Trascendental Functions
+Description: This package contains numerical approximated methods to compute the following real variable trascendental functions:
+  x^(-1), e^(x), sin(x), cos(x), tan(x), ln(x), log_a(x), a^(x), sinh(x), cosh(x), tanh(x), x^(1/2), x^(1/a), arcsin(x), arccos(x),
+  arctan(x) (it also includes a numerical approximation function for pi number).Every functions is approximated using polinomial 
+  series and only the following operations: sum(+), substracion(-), multiplication(*), and the positive integer power of a number(^).
+License: GPLv3+
+Depends: symbolic (>= 2.9.0)
