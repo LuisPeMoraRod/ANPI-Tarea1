@@ -3,14 +3,16 @@
 Estimacioón de la distancia en redes de sensores inalámbricos.
 Usando un método de Newton modificado.
 """
+import sympy as sy
 # Método Newton modificado
 def newton_modificado(x0, tol, iterMax):
-    import sympy as sy
+    if tol <= 0 or iterMax <= 0:
+        print("La tolerancia e Iteraciones Maximas deben ser mayor que 0")
+        return [0,0]
     print('Metodo Newton Modificado')
-
+    print("Donde x0 =", x0)
     # Se asigna como variable de la función la d
     d = sy.Symbol('d')   
-    
     # parametros dados
     r = 10
     α = 4
@@ -30,25 +32,24 @@ def newton_modificado(x0, tol, iterMax):
     func = ((sy.log((x1/d), 10)) / (σ2R * sy.log(10))) + (d*(x2-d) / σ2C)
     error = 0 #Inicializamos el porcentaje de error
     Df = sy.diff(func)  # derivada de la funcion
-    xn = x0
-    for n in range(0, iterMax):  # iteraciones maximas
+    xk = x0
+    for k in range(0, iterMax):  # iteraciones maximas
             # Se evalúa la funcion en X0
-        fxn = func.evalf(subs={d: xn})
-        if abs(fxn) < tol:
-            print('Se aproxima una solucion despues de', n, 'iteraciones')
-            print(xn)
-            print('\n')
+        fxk = func.evalf(subs={d: xk})
+        if abs(fxk) < tol:
+            print('Se aproxima una solucion luego de', k, 'iteraciones')
+            print("Aproximacion de la solucion: xk =", xk)
             print('El porcentajer de error es ',error)
-            return xn
-        Dfxn = Df.evalf(subs={d: xn})  # Se evalua la derivada
-        if Dfxn == 0:  # condicion a cumplir/denominador diferente a cero
+            return xk
+        Dfxk = Df.evalf(subs={d: xk})  # Se evalua la derivada
+        if Dfxk == 0:  # condicion a cumplir/denominador diferente a cero
             print('No hay solución ya que la derivada es igual a cero')
             print('\n')
             return None
-        n = fxn/Dfxn
-        xn1 = xn - n #Formula de Newton
-        error = abs(xn1-xn)
-        xn = xn1
+        k = fxk/Dfxk
+        xk1 = xk - k #Formula de Newton
+        error = abs(xk1-xk)
+        xk = xk1
     print('No hay solucion, alcanzado el máximo numero de iteraciones')
     print('\n')
     return None
