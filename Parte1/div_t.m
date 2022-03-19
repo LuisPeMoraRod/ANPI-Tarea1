@@ -21,8 +21,7 @@ function [result] = div_t(x)
       x0 = eps^8;
     elseif and(factorial(60) < a, a <= factorial(80))
       x0 = eps^11;
-    #elseif and(factorial(80) < a, a <= factorial(100))
-    elseif factorial(80) < a
+    elseif and(factorial(80) < a, a <= factorial(100))
       x0 = eps^15;
     endif
   endfunction
