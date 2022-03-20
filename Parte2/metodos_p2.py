@@ -3,7 +3,7 @@ import sympy as sy
 """
 Métodos de fórmula iterativa (4)
 """
-import sympy as sy
+
 #Método Newton H(u) = 1
 def newton_H_m1(fun, x0, tol, iterMax):
     if tol <= 0 or iterMax <= 0:
