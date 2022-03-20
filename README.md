@@ -9,4 +9,4 @@
 
 El enunciado de la tarea se encuentra en el siguiente enlace: [Tarea 1](https://tecnube1-my.sharepoint.com/personal/jusoto_itcr_ac_cr/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjusoto%5Fitcr%5Fac%5Fcr%2FDocuments%2FTEC%2F2022%20%2D%20S1%2FANPI%2FTareas%2FTarea%201)
 
-El paquete FunTras para Octave se puede descargar en este enlace: [FunTras](https://github.luispemorarod.io/ANPI-Tarea1/Parte1/FunTras.tar.gz)
+El paquete FunTras para Octave se puede descargar en este enlace: [FunTras](https://github.com/LuisPeMoraRod/ANPI-Tarea1/raw/main/Parte1/FunTras.tar.gz)
