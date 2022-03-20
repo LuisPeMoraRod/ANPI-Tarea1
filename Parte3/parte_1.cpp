@@ -1,6 +1,10 @@
 /**
- * Estudientes:
- *
+ * Estudientes Grupo 2:
+ *  Fabián Crawford Barquero
+ *  Irene Muñoz Castro
+ *  Luis Morales Rodríguez
+ *  Steven Badilla Soto
+ *  Adrián Trejos Salazar
  */
 
 #include <iostream>
@@ -218,16 +222,16 @@ public:
      * @return aproximacion de la raiz 
      */
     cpp_bin_float_50 root_t(cpp_bin_float_50 x, cpp_bin_float_50 a){
-       cpp_bin_float_50 resultado_raiz_c;  //Variable para devolver el valor de la raiz cuadrada
+       cpp_bin_float_50 resultado_raiz;  //Variable para devolver el valor de la raiz 
 
         //Se revisa que el dato ingresado no sea igual que cero, de lo contrario procede
         if (x < 0) {
             cout << "Error - La base ingresada es invalida" << endl;
-            resultado_raiz_c = 0;       //Se devuelve el valor como cero  
+            resultado_raiz = 0;       //Se devuelve el valor como cero  
         } else {
-            resultado_raiz_c = Newton_Raphson(x,a);    //Se aplica el método de Newton Raphson
+            resultado_raiz = Newton_Raphson(x,a);    //Se aplica el método de Newton Raphson
         }
-        return resultado_raiz_c; //Se devuelve el valor de la raíz cuadrada 
+        return resultado_raiz; //Se devuelve el valor de la raíz 
     }
 
     /** Esta funcion calcula el valor aproximado de tangente a la menos 1 de un valor ingresado
@@ -442,15 +446,27 @@ public:
      * @return resultado de la raiz cuadrada de x
      */
     cpp_bin_float_50 sqrt_t(cpp_bin_float_50 x){
+        //Validacion inicial
+        if (x < 0) {
+            cout << "Error - La base ingresada es invalida" << endl;
+            return 0;       //Se devuelve el valor como cero  
+        } 
         cpp_bin_float_50 x_k;  //Variable para la iteración del método
         cpp_bin_float_50 x_k_1; //Variable para la iteraición siguiente del método
         cpp_bin_float_50 error; //Corresponde al error presentado por el método
         cpp_bin_float_50 resultado; //Corresponde al error dado por el método
+        cpp_bin_float_50 numerador; //Corresponde al numerador en el metodo
+        cpp_bin_float_50 denominador; //Corresponde al denominador en el metodo
+        cpp_bin_float_50 division; //Corresponde a la division en el metodo
         x_k = x * 0.5; //Valor inicial para comenzar con la iteración de método
+
         //se inicia con la iteración del método
         for (int k = 0; k < iterMax; k++) {
-            //Se procede con la iteración siguiente la método
-            x_k_1 = x_k - ( (pow(x_k,2)-x) * div_t(( x_k, 2)  ) );
+            //Se procede con la iteración
+            numerador = (pow(x_k, 2 ) - x ); // se calcula el numerador
+            denominador = 2 * pow( x_k , ( 2 - 1 ) ); //se calcula el denominador
+            division = numerador * div_t(denominador);//se calcula la diviion 
+            x_k_1 = x_k - division; // se calcual el metodo
             error = abs((x_k_1 - x_k) * div_t(x_k_1)); //Se cálculo el error asociado al métod
             resultado = x_k_1; // el resultado cambia
             //Si el error se pasa de la tolerancia
@@ -550,8 +566,8 @@ public:
 
 
 int main(){
-    bool testAllFuntionons = true;
-    bool test_funtras = false;
+    bool testAllFuntionons = false;
+    bool test_funtras = true;
     cpp_bin_float_50 n = 15;
     cpp_bin_float_50 a = 4;
     cpp_bin_float_50 i = 0.; // numero entre [-1,1] 
@@ -576,20 +592,35 @@ int main(){
     if(test_funtras){
         cpp_bin_float_50 numerador; //Corresponde a el denominador de la operacion
         cpp_bin_float_50 denominador; //Corresponde a el numerador de la operacion
-        cpp_bin_float_50 suma; // Corresponde a la parte de la suma de la operacion 
+        cpp_bin_float_50 suma; // Corresponde a la parte de la suma de la operacion
+        cpp_bin_float_50 seno; // Corresponde al resultado del seno
+        cpp_bin_float_50 fraccion; // Corresponde al resultado de freaccion
+        cpp_bin_float_50 logaritmo; // Corresponde al resultado del logaritmo Natural
+        cpp_bin_float_50 raizCuadrada; // Corresponde al resultado del la raiz cuadrada
+        cpp_bin_float_50 exponencial; // Corresponde al resultado del la exponencial
         cpp_bin_float_50 division; // Es el resultado de la parte de la division
         cpp_bin_float_50 resultado; // resultado Final de la operacion
         cout << " -> Resolviendo: " << endl;    
-        cout << "  " << endl;  
+        cout << " [ 3√(sin(3/7)+in(2))] / [sinh(√(2))] + tan^(-1)(e^(-1)) " << endl;  
         
-        numerador = p1->root_t( 3 , ( p1->sin_t( ( 3 * p1->div_t(7) ) ) + p1->ln_t(2) ) );
-        denominador = p1->sinh_t( p1->sqrt_t(2) );
-        suma = p1->atan_t( p1->exp_t(-1) );
+        fraccion =  3 * p1->div_t(7);
+        seno = p1->sin_t( fraccion );
+        logaritmo = p1->ln_t(2);
+        numerador = p1->root_t( ( seno + logaritmo ) , 3 );
+
+        raizCuadrada = p1->sqrt_t( 2 );
+        denominador = p1->sinh_t( raizCuadrada );
+
+        exponencial = p1->exp_t(-1);
+        suma = p1->atan_t( exponencial );
+
         division = numerador * p1->div_t(denominador);
+
         resultado = division + suma;
 
-        cout << "El resultado final es = "  << resultado << endl;
+        cout << "   El resultado final es = "  << resultado << " -> Deberia ser = 0.8873788" << endl;
     }
 
 }
 
+ 
