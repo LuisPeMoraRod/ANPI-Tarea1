@@ -2,7 +2,7 @@
 #parameters: 
   # @x : preimage
 #output: result of the operation arctan(x)
-#restrictions: x must be part of [-1,1]
+#restrictions: x must be part of [-1,1] for the series to work
 function [result] = atan_t(x)
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package

@@ -1,7 +1,7 @@
 Name: FunTras
 Version: 1.0.0
 Date: 2022-19-03
-Authors: Luis Fabian Crawford Barquero <fabian152195@estudiantec.cr> and Luis Pedro Morales Rodriguez <luismorarod98@estudiantec.cr>
+Author: Luis Fabian Crawford Barquero <fabian152195@estudiantec.cr> and Luis Pedro Morales Rodriguez <luismorarod98@estudiantec.cr>
 Maintainer: Luis Pedro Morales Rodriguez <luismorarod98@estudiantec.cr>
 Title: A Numerical Approximation Package For Trascendental Functions
 Description: This package contains numerical approximated methods to compute the following real variable trascendental functions:

@@ -5,15 +5,24 @@
   # @a : root
 
 #output: 'a' root of 'x'
-#restriction: 0 <= x
+#restriction: x must a positive number for even roots
 
 function [result] =  root_t(x,a)
   pkg load symbolic
   tol = 1e-8; # generic tolerance defined for the package
   iterMax = 2500; # generic maximum iterations defined for the package
   
-  if x < 0
-    error("x value cant be negative");
+  function [even] = is_even(n) # checks if number is even or odd 
+    toggle_num = (-1)^(n);
+    if toggle_num == -1
+      even = false;
+    else
+      even = true;
+    end   
+  end
+ 
+  if and(is_even(a), x < 0)
+    error("x value for even roots can't be negative");
   else
     a_nr = x; # 'a' parametpier for Newton-Raphson method
     p_nr = a; # 'p' parameter for Newton-Raphson method

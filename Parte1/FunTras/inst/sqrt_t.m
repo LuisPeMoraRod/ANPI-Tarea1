@@ -2,6 +2,7 @@
 #parameters: 
   # @x : preimage
 #output: result of the square root of x
+#restrictions: x must be part of R+
 function [result] = sqrt_t(x)
   
   if (x == 0)

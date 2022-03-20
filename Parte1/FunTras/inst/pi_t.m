@@ -30,7 +30,6 @@ function [pi_result] = pi_t()
     error = abs(pi_kp1 - pi_k); #error calculation
     pi_k = pi_kp1;
     if (error < tol)
-      n
       break;
     end
   end
